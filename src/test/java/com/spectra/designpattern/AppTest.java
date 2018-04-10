@@ -41,10 +41,14 @@ public class AppTest
 
     public void testTalk()
     {
-        Server server = new Agent("1", "agent1");
-        assertTrue(server.register());
+        Server server = new Agent("agent1");
+        server.register();
 
-        Client client = new Client("1", "skcho");
-        assertTrue(client.register());
+        Client client = new Client("skcho");
+        client.register();
+
+        client.send("I'd like to talk to somebody.");
+
+        server.send("Yes, what can I do for you?");
     }
 }

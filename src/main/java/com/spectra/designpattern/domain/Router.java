@@ -65,7 +65,10 @@ public class Router {
 
     private boolean openChatRoom(Client client, Server server)
     {
-        ChatRoom chatRoom = new ChatRoom("1", "helloWorld");
+        ChatRoom chatRoom = new ChatRoom("helloWorld");
+        client.setChatRoom(chatRoom);
+        server.setChatRoom(chatRoom);
+
         return chatRoom.openChatRoom(client, server);
     }
 

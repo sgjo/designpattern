@@ -1,13 +1,15 @@
 package com.spectra.designpattern.domain;
 
+import java.util.UUID;
+
 /**
  * Created by sgjo on 2018. 4. 5..
  */
 public class Agent extends Server {
 
-    public Agent(String id, String name)
+    public Agent(String name)
     {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.name = name;
     }
 
@@ -20,7 +22,9 @@ public class Agent extends Server {
         System.out.println("Server Listen : " + message);
     }
 
-    public void send() {
+    public void send(String message) {
+
+        chatRoom.send(message);
 
     }
 }

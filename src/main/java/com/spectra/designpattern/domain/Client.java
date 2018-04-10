@@ -1,16 +1,20 @@
 package com.spectra.designpattern.domain;
 
+import java.util.UUID;
+
 /**
  * Created by sgjo on 2018. 4. 4..
  */
 public class Client {
 
-    private String id;
+    private UUID id;
     private String name;
 
-    public Client(String id, String name)
+    private ChatRoom chatRoom;
+
+    public Client(String name)
     {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.name = name;
     }
 
@@ -29,15 +33,12 @@ public class Client {
 
     public void send(String message)
     {
-        System.out.println("Send:"+message);
+        //System.out.println("Send:"+message);
+        chatRoom.send(message);
     }
 
     public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        return id.toString();
     }
 
     public String getName() {
@@ -46,5 +47,9 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setChatRoom(ChatRoom chatRoom) {
+        this.chatRoom = chatRoom;
     }
 }
