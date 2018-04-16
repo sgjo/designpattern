@@ -1,13 +1,49 @@
-package com.spectra.designpattern.domain;
+package com.spectra.designpattern.domain.speaker;
+
+import com.spectra.designpattern.domain.talk.TalkMessage;
 
 import java.util.UUID;
 
 /**
  * Created by sgjo on 2018. 4. 4..
  */
-public class Client {
+public class Client extends AbstractSpeaker {
 
-    private UUID id;
+    public Client(String name)
+    {
+        super(name);
+    }
+
+
+    public void register() {
+
+        getRouterConnector().connectClient(this);
+
+    }
+
+    public void listen(TalkMessage talkMessage) {
+
+        System.out.println("Client {"+this.name+"} 	 >> "+talkMessage.toString());
+
+    }
+
+    public void talking(UUID chatRoomId, TalkMessage message) {
+
+        getChatRoomConnector().talking(chatRoomId, message);
+
+    }
+
+    public void close(UUID chatRoomId) {
+
+    }
+
+    public void notifyOpenChatRoom(UUID chatRoomId) {
+
+        listen(new TalkMessage("상담창이 열렸습니다. ["+chatRoomId+"]"));
+        talking(chatRoomId, new TalkMessage("할 말 있어요"));
+    }
+
+    /*private UUID id;
     private String name;
 
     private ChatRoom chatRoom;
@@ -51,5 +87,5 @@ public class Client {
 
     public void setChatRoom(ChatRoom chatRoom) {
         this.chatRoom = chatRoom;
-    }
+    }*/
 }

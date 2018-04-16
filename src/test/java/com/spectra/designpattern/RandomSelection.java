@@ -15,10 +15,12 @@ public class RandomSelection extends TestCase {
         String[] githubs = new String[]{
                 "https://github.com/leesoomin/designpattern.git",
                 "https://github.com/go4no/DesignPattern.git",
-                "https://github.com/fjk1111/designpattern.git"
+                "https://github.com/fjk1111/designpattern.git",
+                "https://github.com/shjeonSpectra/designpattern.git",
+                "https://github.com/klezea/designpattern",
+                "https://github.com/shkim82/designpattern.git"
         };
 
-        System.out.println(githubs[2]);
         List list = new ArrayList();
 
     }
