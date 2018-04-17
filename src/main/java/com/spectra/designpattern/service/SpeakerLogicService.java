@@ -7,6 +7,7 @@ import com.spectra.designpattern.domain.adapter.RouterConnector;
 import com.spectra.designpattern.domain.speaker.AbstractSpeaker;
 import com.spectra.designpattern.domain.speaker.Client;
 import com.spectra.designpattern.domain.talk.TalkMessage;
+import com.spectra.designpattern.domain.talk.TextTalkMessage;
 
 import java.util.UUID;
 
@@ -29,7 +30,7 @@ public class SpeakerLogicService {
         ChatRoomConnector chatRoomConnector = new FileChatRoomConnector();
         speaker.setChatRoomConnector(chatRoomConnector);
 
-        speaker.talking(chatRoomId, new TalkMessage(message));
+        speaker.talking(chatRoomId, new TextTalkMessage(message));
 
     }
 

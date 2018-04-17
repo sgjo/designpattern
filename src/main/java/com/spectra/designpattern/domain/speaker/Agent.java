@@ -2,6 +2,7 @@ package com.spectra.designpattern.domain.speaker;
 
 
 import com.spectra.designpattern.domain.talk.TalkMessage;
+import com.spectra.designpattern.domain.talk.TextTalkMessage;
 
 import java.util.UUID;
 
@@ -33,7 +34,7 @@ public class Agent extends AbstractSpeaker {
     }
 
     public void notifyOpenChatRoom(UUID chatRoomId) {
-        listen(new TalkMessage("상담창이 열렸습니다. ["+chatRoomId+"]"));
+        listen(new TextTalkMessage("상담창이 열렸습니다. ["+chatRoomId+"]"));
     }
 
 

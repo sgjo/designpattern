@@ -1,6 +1,7 @@
 package com.spectra.designpattern.domain.speaker;
 
 import com.spectra.designpattern.domain.talk.TalkMessage;
+import com.spectra.designpattern.domain.talk.TextTalkMessage;
 
 import java.util.UUID;
 
@@ -39,8 +40,10 @@ public class Client extends AbstractSpeaker {
 
     public void notifyOpenChatRoom(UUID chatRoomId) {
 
-        listen(new TalkMessage("상담창이 열렸습니다. ["+chatRoomId+"]"));
-        talking(chatRoomId, new TalkMessage("할 말 있어요"));
+        listen(TalkMessage.createTalkMessage("TEXT","상담창이 열렸습니다. ["+chatRoomId+"]"));
+        talking(chatRoomId, TalkMessage.createTalkMessage("TEXT", "할 말 있어요"));
+        talking(chatRoomId, TalkMessage.createTalkMessage("JSON", "{A:B}"));
+        talking(chatRoomId, TalkMessage.createTalkMessage("IMG", "fileinfo=1234"));
     }
 
     /*private UUID id;
